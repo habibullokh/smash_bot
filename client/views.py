@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
+from rest_framework import viewsets
 from rest_framework.permissions import (
     AllowAny,
     IsAuthenticated,
@@ -30,5 +31,11 @@ class UsersAPIViews(ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializers
     permission_classes = [AllowAny]
+    
+
+class UsersAPIViewsSet(viewsets.ModelViewSet):
+    
+    serializer_class = UserSerializers
+    queryset = User.objects.all()
 
 

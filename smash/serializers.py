@@ -1,5 +1,18 @@
 from rest_framework import serializers
-from .models import Products, ProductsCategory, Product
+from .models import Products, ProductsCategory, Product, Cart, User
+
+
+class UserSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['__all__']
+
+
+class CartSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Cart
+        fields = ['__all__']
+
 
 class ProductsCategorySerializers(serializers.ModelSerializer):
     class Meta:
